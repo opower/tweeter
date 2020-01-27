@@ -1,0 +1,12 @@
+#tweet-container{
+  border: 5px solid #545149;
+  margin-top: 1em;
+}
+
+#tweet-container header{
+  padding: 1em;
+}
+
+#tweet-container footer {
+  border-top: 2px solid #545149;
+}

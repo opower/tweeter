@@ -1,4 +1,4 @@
-header{
+body > header:first-of-type{
   height: 400px;
   width: 100%;
   text-align: center;
