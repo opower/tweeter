@@ -1,0 +1,26 @@
+input[type='submit']{
+  color: white;
+  background-color: #4056A1;
+  font-family: 'Bungee', 'sans-serif';
+  padding: 5px;
+  margin-top: .5em;
+
+}
+
+textarea{
+  border: none;
+  border-bottom: 5px solid #545149 !important;
+  background-color:#f4f1ec;
+  width: 100%;
+  resize: none;
+}
+
+::placeholder{
+  font-weight: 600;
+}
+
+.counter{
+  font-family: 'Bungee', 'sans-serif';
+  float: right;
+  margin-top: .5em;
+}
