@@ -54,13 +54,16 @@ $(() => {
     let $tweet = $('textarea').val();
 
     if($tweet.length === 0 ){
-      alert('Invalid Tweet! Tweet too short')
+      $('#error').css('display', 'block');
+      $('#error').text(' ⚠️ Tweet Empty! Please Add Characters')
     }
     else if($tweet.length > 140){
-      alert('Tweet Too Long!')
+      $('#error').css('display', 'block');
+      $('#error').text(' ⚠️ Tweet Too Long! Please Remove Characters')
     }
     else if($tweet === 'null'){
-      alert('Tweet Cannot Be Null')
+      $('#error').css('display', 'block');
+      $('#error').text(' ⚠️ Tweet Cannot Be Null! Please Edit Tweet')
     }
     else{
       $.post('/tweets', {

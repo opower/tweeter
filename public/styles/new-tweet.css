@@ -29,3 +29,12 @@ textarea{
 .new-tweet{
   display: none;
 }
+
+#error{
+  display: none;
+  border: 5px solid red;
+  color: red;
+  padding: 1em;
+  margin-top: 1em;
+  text-align: center;
+}
