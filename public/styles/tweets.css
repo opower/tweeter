@@ -1,12 +1,26 @@
 #tweet-container{
   border: 5px solid #545149;
-  margin-top: 1em;
+  margin-top: 2em;
 }
 
 #tweet-container header{
-  padding: 1em;
+  margin: .5em;
 }
 
 #tweet-container footer {
-  border-top: 2px solid #545149;
+  border-top: 5px solid #545149;
+  margin: .5em;
+}
+
+#tweet-container span:nth-of-type(2){
+  float: right;
+}
+
+#tweet-container p {
+  padding: 1em;
+}
+
+#tweet-container:hover{
+  font-weight: 700;
+  box-shadow: 10px 10px lightsteelblue;
 }
