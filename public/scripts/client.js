@@ -6,19 +6,19 @@
 
 $(() => {
 
-  const calculateDays = function(date){
+  const calculateDays = function(date) {
     let now = new Date().getTime();
     let tweet = now - date;
     let timeInDays = 1000 * 60 * 60 * 24;
     let days = parseInt(Math.floor(tweet / timeInDays));
     return days;
-  }
+  };
 
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
+  };
 
   const createTweetElement = function(tweetObj) {
 
@@ -49,62 +49,59 @@ $(() => {
     });
   };
 
-  $( "form" ).submit(function( event ) {
+  $("form").submit(function(event) {
     event.preventDefault();
     let $tweet = $('textarea').val();
 
-    if($tweet.length === 0 ){
+    if ($tweet.length === 0) {
       $('#error').css('display', 'block');
-      $('#error').text(' ⚠️ Tweet Empty! Please Add Characters')
-    }
-    else if($tweet.length > 140){
+      $('#error').text(' ⚠️ Tweet Empty! Please Add Characters');
+    } else if ($tweet.length > 140) {
       $('#error').css('display', 'block');
-      $('#error').text(' ⚠️ Tweet Too Long! Please Remove Characters')
-    }
-    else if($tweet === 'null'){
+      $('#error').text(' ⚠️ Tweet Too Long! Please Remove Characters');
+    } else if ($tweet === 'null') {
       $('#error').css('display', 'block');
-      $('#error').text(' ⚠️ Tweet Cannot Be Null! Please Edit Tweet')
-    }
-    else{
+      $('#error').text(' ⚠️ Tweet Cannot Be Null! Please Edit Tweet');
+    } else {
       $.post('/tweets', {
         text : $tweet
       },
-      function(data, status){
+      function(data, status) {
         console.log(data, status);
-      })
+      });
       loadTweets();
       $('textarea').val('');
       $('.counter').text(140);
     }
   });
-  $('#toggleForm').on('click', function(){
-    $('.new-tweet').slideToggle()
-  })
   
-  $(window).scroll(function(){
-    var pos = $(window).scrollTop();
-    if(pos >= 400){
-      $('#top').css('display', 'block')
-      $('#writeTweet').css('display', 'none')
+  $('#toggleForm').on('click', function() {
+    $('.new-tweet').slideToggle();
+  });
+  
+  $(window).scroll(function() {
+    let pos = $(window).scrollTop();
+    if (pos >= 400) {
+      $('#top').css('display', 'block');
+      $('#writeTweet').css('display', 'none');
+    } else {
+      $('#top').css('display', 'none');
+      $('#writeTweet').css('display', 'block');
     }
-    else{
-      $('#top').css('display', 'none')
-      $('#writeTweet').css('display', 'block')
-    }
-  })
+  });
 
-  $('#top').click(function(){
+  $('#top').click(function() {
     $('html').animate({scrollTop: 0}, 1000);
     $('.new-tweet').slideToggle();
 
-  })
+  });
 
-  const loadTweets =() =>{
+  const loadTweets = () =>{
     $.get('/tweets')
-    .then(data =>{
-      renderTweets(data);
-    })
-  }
+      .then(data =>{
+        renderTweets(data);
+      });
+  };
   
   
   loadTweets();
