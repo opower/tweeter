@@ -15,12 +15,16 @@
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
-    <!-- External JS -->
+    <!-- External JS and jQuery -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/d0117cfed3.js" crossorigin="anonymous"></script>
 
   </head>
 
@@ -28,6 +32,10 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
+      <div id='writeTweet'>
+        <span><strong>Write</strong> a new tweet</span>
+        <button id='toggleForm'><i class="fas fa-angle-double-down"></i></button>
+      </div>
     </nav>  
     <header>
         <div>
@@ -35,7 +43,7 @@
         </div>
         <br>
         <div>
-            <h2>Your Name</h2>
+            <h2><strong>Your</strong> Name</h2>
         </div>
     </header>
     
@@ -49,10 +57,9 @@
               <input type="submit" value="Tweet">
               <span class="counter">140</span>
             </form>
-          </section>
-          <article id='tweet-container'>
-          </article>
-
+        </section>
+        <section id='tweet-container'></section>
+        <button id='top'><i class="fas fa-angle-double-up"></i></button>
     </main>
   </body>
 </html>

@@ -1,7 +1,7 @@
 nav{
   color: white;
   background-color:#4056A1;
-  position: fixed;
+  position: sticky;
   top: 0;
   height: 120px;
   z-index: 1;
@@ -9,9 +9,27 @@ nav{
   width: 100%;
   box-sizing: border-box;
 }
-nav span {
+nav span:first-of-type {
   font-family: 'Bungee', 'sans-serif';
   font-size: 40px;
+  float: none;
+}
+
+nav button{
+  position: absolute;
+  top: 70px;
+  right: 115px;
+  background-color:#4056A1;
+  color: white;
+  border: 0px;
+}
+#writeTweet{
+  float: right;
+}
+nav div span:first-of-type{
+  font-family: 'Source Sans Pro', 'sans-serif';
+  text-align: center;
+  font-size: 25px;
 }
 
 

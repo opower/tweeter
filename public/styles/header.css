@@ -9,11 +9,11 @@ body > header:first-of-type{
 
 header div img{
   position: relative;
-  top: 100px;
-  width: 200px;
-  height: auto;
+
 }
 
 header h2{
-  margin-top: 2em;
+  color: white;
+  font-family: 'Source Sans Pro', 'sans-serif';
+  font-weight: normal;
 }

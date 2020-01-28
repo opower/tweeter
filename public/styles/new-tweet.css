@@ -13,6 +13,7 @@ textarea{
   background-color:#f4f1ec;
   width: 100%;
   resize: none;
+  height: 1.75em;
 }
 
 ::placeholder{
@@ -23,4 +24,8 @@ textarea{
   font-family: 'Bungee', 'sans-serif';
   float: right;
   margin-top: .5em;
+}
+
+.new-tweet{
+  display: none;
 }
