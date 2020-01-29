@@ -76,16 +76,6 @@ $(() => {
 
 });
 
- /**
-   * @param str string
-   * @returns an escaped string incase a user enters malicious text
-   */
-  const escape =  function(str) {
-    let div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  };
-
   /**
    * @param date string
    * @returns the calculated number of days, since today, the tweet was created
@@ -94,7 +84,7 @@ $(() => {
     let now = new Date().getTime();
     let tweet = now - date;
     let timeInDays = 1000 * 60 * 60 * 24;
-    let days = parseInt(Math.ceil(tweet / timeInDays));
+    let days = parseInt(Math.floor(tweet / timeInDays));
     return days;
   };
 

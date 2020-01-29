@@ -48,6 +48,22 @@
   margin-top: 1em;
 }
 
+@media only screen and (max-width: 420px) {
+
+  .tweet header span:nth-of-type(2){
+    float: none;
+  }
+  .tweet header span:first-of-type{
+    position: unset;
+  
+  }
+  .tweet header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;   
+  } 
+ }
+
 @media only screen and (min-width: 1024px) {
 
   .tweet{

@@ -39,8 +39,24 @@ nav div span:first-of-type{
   50% {top: 65px}
 }
 
-/* Be the full width of the viewport. */
+/* Moblie screens */
+@media only screen and (max-width: 420px) {
 
+  #writeTweet{
+    float: none;
+  }
+  nav{
+    text-align: center;
+    padding-bottom: 2em;
+  }
+
+  nav button {
+    position: static;
+    
+  } 
+}
+
+/* Be the full width of the viewport. */
 @media only screen and (min-width: 1024px) {
 
   nav{
@@ -51,3 +67,5 @@ nav div span:first-of-type{
   }
   
 }
+
+
