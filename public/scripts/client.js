@@ -105,6 +105,7 @@ $(() => {
 
   $('#top').click(function() {
     $('html').animate({scrollTop: 0}, 1000);
+    $('.new-tweet').css('display', 'none');
     $('.new-tweet').slideToggle();
 
   });
