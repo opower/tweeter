@@ -65,17 +65,18 @@ $(() => {
 
     if ($tweet.length === 0) {
       $('#error').css('display', 'block');
-      $('#error').text(' ⚠️ Tweet Empty! Please Add Characters');
+      $('#error').text(' ⚠️ Tweet Empty! Please Add Characters ⚠️');
     } else if ($tweet.length > 140) {
       $('#error').css('display', 'block');
-      $('#error').text(' ⚠️ Tweet Too Long! Please Remove Characters');
+      $('#error').text(' ⚠️ Tweet Too Long! Please Remove Characters ⚠️');
     } else if ($tweet === 'null') {
       $('#error').css('display', 'block');
-      $('#error').text(' ⚠️ Tweet Cannot Be Null! Please Edit Tweet');
+      $('#error').text(' ⚠️ Tweet Cannot Be Null! Please Edit Tweet ⚠️');
     } else {
       $.post('/tweets', {
         text : $tweet
       });
+      $('#error').css('display', 'none');
       $('#tweet-container').empty();
       loadTweets();
       $('textarea').val('');
