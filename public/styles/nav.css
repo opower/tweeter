@@ -1,8 +1,8 @@
 nav{
   color: white;
-  background-color:#4056A1;
-  position: sticky;
-  top: 0;
+  background-color: #404ee6;
+  background-image:url('../images/diagmonds-light.png') ;
+  
   height: 120px;
   z-index: 1;
   padding: 1.5em;
@@ -19,8 +19,8 @@ nav button{
   position: absolute;
   top: 70px;
   right: 115px;
-  background-color:#4056A1;
-  color: white;
+  background-color:transparent;
+  color: #ffff99;
   border: 0px;
 }
 #writeTweet{
@@ -32,5 +32,15 @@ nav div span:first-of-type{
   font-size: 25px;
 }
 
-
 /* Be the full width of the viewport. */
+
+@media only screen and (min-width: 1024px) {
+
+  nav{
+    position: sticky;
+    top: 0;
+    background-color:#4056A1;
+    background-image: none;
+  }
+  
+}

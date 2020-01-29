@@ -56,3 +56,23 @@ main h2{
    background-color: white;
    border: 2px solid #4056A1;
  }
+
+ main{
+   padding-bottom: 2rem;
+ }
+
+ @media only screen and (min-width: 1024px) {
+
+  .container{
+    width: 60%;
+    margin-right: 2rem;
+    margin-left: auto;
+    top: 0;
+    padding-top: 0;
+    
+  }
+  main h2{
+    padding-top:0;
+  }
+   
+ }

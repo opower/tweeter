@@ -17,3 +17,14 @@ header h2{
   font-family: 'Source Sans Pro', 'sans-serif';
   font-weight: normal;
 }
+
+@media only screen and (min-width: 1024px) {
+
+  body > header:first-of-type{
+    margin: 2rem;
+    width: 30%;
+    float: left;
+    padding: .5em;
+  }
+
+}
