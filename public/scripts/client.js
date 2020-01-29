@@ -1,3 +1,4 @@
+// waits till the DOM is loaded
 $(() => {
 
   const $tweetContainer = $('#tweet-container');
@@ -12,42 +13,46 @@ $(() => {
         renderTweets(data, $tweetContainer);
       });
   };
-
   loadTweets();
-
 
   $("form").submit(function(event) {
     event.preventDefault();
-
     let $tweet = $('textarea').val();
+
     if ($tweet.length === 0) {
-      $('#error').css('display', 'block');
+      $('#error').slideDown();
       $('#error').text(' ⚠️ Tweet Empty! Please Add Characters ⚠️');
     } else if ($tweet.length > 140) {
-      $('#error').css('display', 'block');
+      $('#error').slideDown();
       $('#error').text(' ⚠️ Tweet Too Long! Please Remove Characters ⚠️');
     } else if ($tweet === 'null') {
-      $('#error').css('display', 'block');
+      $('#error').slideDown();
       $('#error').text(' ⚠️ Tweet Cannot Be Null! Please Edit Tweet ⚠️');
     } else {
-      $.post('/tweets', $(this).serialize(),
-      function(data, status) {
-        console.log(data, status);
+      $.post('/tweets', $(this).serialize())
+      .done(data =>{
+        $('#tweet-container').empty();
+        $tweetContainer.prepend(loadTweets());
+      })
+      .fail(err =>{
+        console.log(err);
       });
-
-      $('#tweet-container').empty();
       $('#error').css('display', 'none');
       $('textarea').val('');
       $('.counter').text(140);
-
-      loadTweets();
     }
   });
   
+  /**
+   * 
+   */
   $('#toggleForm').on('click', function() {
     $('.new-tweet').slideToggle();
   });
   
+  /**
+   * 
+   */
   $(window).scroll(function() {
     let pos = $(window).scrollTop();
     let width = window.innerWidth;
@@ -60,11 +65,13 @@ $(() => {
     }
   });
 
+  /**
+   * 
+   */
   $('#top').click(function() {
     $('html').animate({scrollTop: 0}, 1000);
     $('.new-tweet').css('display', 'none');
     $('.new-tweet').slideToggle();
-
   });
 
 });
@@ -112,7 +119,6 @@ $(() => {
 
     return $article;
   };
-
 
   /**
    * @param tweets array
