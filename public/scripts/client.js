@@ -6,6 +6,21 @@
 
 $(() => {
 
+  const renderTweets = function(tweets) {
+    tweets.forEach(tweet => {
+      ($('#tweet-container').prepend(createTweetElement(tweet)));
+    });
+  };
+
+  const loadTweets = () =>{
+    $.get('/tweets')
+      .then(data =>{
+        renderTweets(data);
+      });
+  };
+  loadTweets();
+
+
   const calculateDays = function(date) {
     let now = new Date().getTime();
     let tweet = now - date;
@@ -43,11 +58,6 @@ $(() => {
 
   };
 
-  const renderTweets = function(tweets) {
-    tweets.forEach(tweet => {
-      ($('#tweet-container').prepend(createTweetElement(tweet)));
-    });
-  };
 
   $("form").submit(function(event) {
     event.preventDefault();
@@ -65,10 +75,8 @@ $(() => {
     } else {
       $.post('/tweets', {
         text : $tweet
-      },
-      function(data, status) {
-        console.log(data, status);
       });
+      $('#tweet-container').empty();
       loadTweets();
       $('textarea').val('');
       $('.counter').text(140);
@@ -95,16 +103,5 @@ $(() => {
     $('.new-tweet').slideToggle();
 
   });
-
-  const loadTweets = () =>{
-    $.get('/tweets')
-      .then(data =>{
-        renderTweets(data);
-      });
-  };
-  
-  
-  loadTweets();
-
 
 });
