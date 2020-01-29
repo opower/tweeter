@@ -94,7 +94,8 @@ $(() => {
   
   $(window).scroll(function() {
     let pos = $(window).scrollTop();
-    if (pos >= 400) {
+    let width = window.innerWidth;
+    if (pos >= 400 || (width > 1024 && pos >= 200)) {
       $('#top').css('display', 'block');
       $('#writeTweet').css('display', 'none');
     } else {

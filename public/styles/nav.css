@@ -17,11 +17,14 @@ nav span:first-of-type {
 
 nav button{
   position: absolute;
-  top: 70px;
+  top: 60px;
   right: 115px;
   background-color:transparent;
   color: #ffff99;
   border: 0px;
+  animation: move;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
 }
 #writeTweet{
   float: right;
@@ -30,6 +33,10 @@ nav div span:first-of-type{
   font-family: 'Source Sans Pro', 'sans-serif';
   text-align: center;
   font-size: 25px;
+}
+
+@keyframes move {
+  50% {top: 65px}
 }
 
 /* Be the full width of the viewport. */
