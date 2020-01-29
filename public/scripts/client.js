@@ -25,7 +25,7 @@ $(() => {
     let now = new Date().getTime();
     let tweet = now - date;
     let timeInDays = 1000 * 60 * 60 * 24;
-    let days = parseInt(Math.floor(tweet / timeInDays));
+    let days = parseInt(Math.ceil(tweet / timeInDays));
     return days;
   };
 
@@ -61,8 +61,8 @@ $(() => {
 
   $("form").submit(function(event) {
     event.preventDefault();
-    let $tweet = $('textarea').val();
 
+    let $tweet = $('textarea').val();
     if ($tweet.length === 0) {
       $('#error').css('display', 'block');
       $('#error').text(' ⚠️ Tweet Empty! Please Add Characters ⚠️');
@@ -75,10 +75,14 @@ $(() => {
     } else {
       $.post('/tweets', {
         text : $tweet
+      },
+      function(data, status) {
+        console.log(data, status);
       });
-      $('#error').css('display', 'none');
-      $('#tweet-container').empty();
+
       loadTweets();
+      $('#tweet-container').empty();
+      $('#error').css('display', 'none');
       $('textarea').val('');
       $('.counter').text(140);
     }
