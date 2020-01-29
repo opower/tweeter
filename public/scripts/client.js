@@ -1,62 +1,19 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 $(() => {
 
-  const renderTweets = function(tweets) {
-    tweets.forEach(tweet => {
-      ($('#tweet-container').prepend(createTweetElement(tweet)));
-    });
-  };
+  const $tweetContainer = $('#tweet-container');
 
+  /**
+   * Invokes an AJAX GET request to retrieve tweets from /tweets 
+   * Then calls renderTweets(data) in a callback
+   */
   const loadTweets = () =>{
     $.get('/tweets')
       .then(data =>{
-        renderTweets(data);
+        renderTweets(data, $tweetContainer);
       });
   };
+
   loadTweets();
-
-
-  const calculateDays = function(date) {
-    let now = new Date().getTime();
-    let tweet = now - date;
-    let timeInDays = 1000 * 60 * 60 * 24;
-    let days = parseInt(Math.ceil(tweet / timeInDays));
-    return days;
-  };
-
-  const escape =  function(str) {
-    let div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  };
-
-  const createTweetElement = function(tweetObj) {
-
-    const tweetFormat = `
-    <article class='tweet'>
-      <header>
-        <img src='${tweetObj.user.avatars}' alt='avatar'></img>
-        <span>${tweetObj.user.name} </span>
-        <span>${tweetObj.user.handle}</span>
-      </header>
-      <p>${escape(tweetObj.content.text)}</p>
-      <footer>
-        <span>${calculateDays(tweetObj.created_at)} days</span>
-        <i class="fas fa-heart"></i>
-        <i class="fas fa-retweet"></i>
-        <i class="fab fa-font-awesome-flag"></i>
-      </footer>
-    </article>
-    `;
-
-    return tweetFormat;
-
-  };
 
 
   $("form").submit(function(event) {
@@ -73,18 +30,17 @@ $(() => {
       $('#error').css('display', 'block');
       $('#error').text(' ⚠️ Tweet Cannot Be Null! Please Edit Tweet ⚠️');
     } else {
-      $.post('/tweets', {
-        text : $tweet
-      },
+      $.post('/tweets', $(this).serialize(),
       function(data, status) {
         console.log(data, status);
       });
 
-      loadTweets();
       $('#tweet-container').empty();
       $('#error').css('display', 'none');
       $('textarea').val('');
       $('.counter').text(140);
+
+      loadTweets();
     }
   });
   
@@ -95,7 +51,7 @@ $(() => {
   $(window).scroll(function() {
     let pos = $(window).scrollTop();
     let width = window.innerWidth;
-    if (pos >= 400 || (width > 1024 && pos >= 200)) {
+    if (pos >= 520 || (width > 1024 && pos >= 200)) {
       $('#top').css('display', 'block');
       $('#writeTweet').css('display', 'none');
     } else {
@@ -112,3 +68,61 @@ $(() => {
   });
 
 });
+
+ /**
+   * @param str string
+   * @returns an escaped string incase a user enters malicious text
+   */
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+  /**
+   * @param date string
+   * @returns the calculated number of days, since today, the tweet was created
+   */
+  const calculateDays = function(date) {
+    let now = new Date().getTime();
+    let tweet = now - date;
+    let timeInDays = 1000 * 60 * 60 * 24;
+    let days = parseInt(Math.ceil(tweet / timeInDays));
+    return days;
+  };
+
+  /**
+   * @param tweetObj object
+   * @returns an HTML format that contains the information from the tweetObj
+   */
+  const createTweetElement = function(tweetObj) {
+
+    const $img = $('<img>').attr('src', tweetObj.user.avatars).attr('alt', 'avatar');
+    const $spanName = $('<span>').text(tweetObj.user.name);
+    const $spanHandle = $('<span>').text(tweetObj.user.handle);
+    const $p = $('<p>').text(tweetObj.content.text);
+    const $spanDays = $('<span>').text(`${calculateDays(tweetObj.created_at)} days ago`);
+    const $heart = $('<i>').addClass("fas fa-heart")
+    const $retweet = $('<i>').addClass("fas fa-retweet")
+    const $flag = $('<i>').addClass("fab fa-font-awesome-flag")
+    
+    const $footer = $('<footer>').append($spanDays, $heart, $retweet, $flag);
+    const $header = $('<header>').append($img, $spanName, $spanHandle);
+    const $article = $('<article>').addClass('tweet').append($header, $p, $footer);
+
+    return $article;
+  };
+
+
+  /**
+   * @param tweets array
+   * @param mountPoint html element to mount too
+   * Loops through a tweets array and calls createTweetElement(tweet) and prepends it to #tweet-container
+   */
+  const renderTweets = function(tweets, mountPoint) {
+    tweets.forEach(tweet => {
+      mountPoint.prepend(createTweetElement(tweet));
+    });
+  };
+
+
