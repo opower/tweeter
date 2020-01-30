@@ -17,6 +17,7 @@ html {
 body {
   color: #545149;
   background-color: #f4f1ec;
+  background-image:url('../images/email-pattern.png') ;
   font-size: 24px;
   font-family: 'Source Sans Pro', 'sans-serif';
   padding-bottom: 2em;
@@ -35,6 +36,7 @@ main h2{
    width: 90%;
    margin: auto;
    background-color: #f4f1ec;
+   background-image:url('../images/email-pattern.png') ; 
    position: relative;
    top: 400px;
  }
@@ -44,7 +46,7 @@ main h2{
    bottom: 10px;
    right: 20px;
    display: none;
-   background-color: #4056A1;
+   background-color: rgb(17, 67, 95);
    color: white;
    border-radius: 50%;
    padding: 1em;
@@ -52,9 +54,9 @@ main h2{
  }
 
  #top:hover{
-   color: #404ee6;
-   background-color: white;
-   border: 2px solid #4056A1;
+   color: white;
+   background-color: rgb(17, 67, 95);
+   border: 3px solid #BAFFDF;
  }
 
  main{

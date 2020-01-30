@@ -1,6 +1,6 @@
 input[type='submit']{
   color: white;
-  background-color: #4056A1;
+  background-color:rgb(13, 61, 88);
   font-family: 'Bungee', 'sans-serif';
   padding: 5px;
   margin-top: .5em;
@@ -10,11 +10,13 @@ input[type='submit']{
 textarea{
   border: none;
   border-bottom: 5px solid #545149 !important;
-  background-color:#f4f1ec;
+  background-color: #f4f1ec;
+  background-image:url('../images/email-pattern.png') ;
   width: 100%;
   resize: none;
   height: 1.75em;
 }
+
 
 ::placeholder{
   font-weight: 600;
@@ -28,6 +30,8 @@ textarea{
 
 .new-tweet{
   display: none;
+  background-color: #f4f1ec;
+  background-image:url('../images/email-pattern.png') ;
 }
 
 #error{

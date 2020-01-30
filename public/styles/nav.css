@@ -1,7 +1,7 @@
 nav{
-  color: white;
-  background-color: #404ee6;
-  background-image:url('../images/diagmonds-light.png') ;
+  color: #545149;
+  background-color: #BAFFDF;
+  background-image:url('../images/asfalt-dark.png') ;
   
   height: 120px;
   z-index: 1;
@@ -20,12 +20,17 @@ nav button{
   top: 60px;
   right: 115px;
   background-color:transparent;
-  color: #ffff99;
+  color: #f5f5a4;
   border: 0px;
   animation: move;
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
 }
+
+nav button:hover{
+  text-shadow: 0 0 10px fuchsia;
+}
+
 #writeTweet{
   float: right;
 }
@@ -40,7 +45,7 @@ nav div span:first-of-type{
 }
 
 /* Moblie screens */
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 530px) {
 
   #writeTweet{
     float: none;
@@ -60,9 +65,10 @@ nav div span:first-of-type{
 @media only screen and (min-width: 1024px) {
 
   nav{
+    color: white;
     position: sticky;
     top: 0;
-    background-color:#4056A1;
+    background-color: rgb(13, 61, 88);
     background-image: none;
   }
   

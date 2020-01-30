@@ -85,7 +85,10 @@ $(() => {
     let tweet = now - date;
     let timeInDays = 1000 * 60 * 60 * 24;
     let days = parseInt(Math.floor(tweet / timeInDays));
-    return days;
+    if(days == 0){
+      return 'Today';
+    }
+    return `${days} days ago`;
   };
 
   /**
@@ -98,10 +101,10 @@ $(() => {
     const $spanName = $('<span>').text(tweetObj.user.name);
     const $spanHandle = $('<span>').text(tweetObj.user.handle);
     const $p = $('<p>').text(tweetObj.content.text);
-    const $spanDays = $('<span>').text(`${calculateDays(tweetObj.created_at)} days ago`);
-    const $heart = $('<i>').addClass("fas fa-heart")
-    const $retweet = $('<i>').addClass("fas fa-retweet")
-    const $flag = $('<i>').addClass("fab fa-font-awesome-flag")
+    const $spanDays = $('<span>').text(`${calculateDays(tweetObj.created_at)}`);
+    const $heart = $('<i>').addClass('fas fa-heart')
+    const $retweet = $('<i>').addClass('fas fa-retweet')
+    const $flag = $('<i>').addClass('fab fa-font-awesome-flag')
     
     const $footer = $('<footer>').append($spanDays, $heart, $retweet, $flag);
     const $header = $('<header>').append($img, $spanName, $spanHandle);

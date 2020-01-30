@@ -2,6 +2,7 @@
 .tweet{
   border: 5px solid #545149;
   margin-top: 2em;
+  background-color: white;
 }
 
 .tweet header{
@@ -32,11 +33,12 @@
 
 .tweet p {
   padding: 1em;
+  overflow: auto;
 }
 
 .tweet:hover{
   font-weight: 700;
-  box-shadow: 10px 10px #8888e1;
+  box-shadow: 10px 10px rgba(186, 255, 223, 0.699);
 }
 
 .tweet i {
@@ -48,7 +50,7 @@
   margin-top: 1em;
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 530px) {
 
   .tweet header span:nth-of-type(2){
     float: none;
