@@ -4,9 +4,9 @@ $(document).ready(function() {
     console.log(this); //The this keyword is a reference to the button
   });
 
-  $('textarea').on('keyup', function(){
+  $('textarea').on('keyup', function() {
     let charsLeft = 140 - this.value.length;
-    if(charsLeft < 0){
+    if (charsLeft < 0) {
       $(this).siblings().last().text(charsLeft).css('color', 'red');
     } else {
       $(this).siblings().last().text(charsLeft).css('color', '#545149');
