@@ -4,6 +4,13 @@ Tweeter is a simple, single-page Twitter clone.
 
 This repository demonstartes HTML, CSS, JS, jQuery and AJAX front-end skills, and Node, Express and MongoDB back-end skills. Tweeter follows responsive design principles and have different view screens for mobile, tablet, and desktop.
 
+## Screenshots
+
+!['Screenshot of desktop'](https://github.com/opower/tweeter/blob/master/docs/desktop.png?raw=true)
+!['Screenshot of tablet'](https://github.com/opower/tweeter/blob/master/docs/tablet.png?raw=true)
+!['Screenshot of mobile'](https://github.com/opower/tweeter/blob/master/docs/mobile.png?raw=true)
+!['Screenshot of mobile tweets'](https://github.com/opower/tweeter/blob/master/docs/mobileTweets.png?raw=true)
+
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
