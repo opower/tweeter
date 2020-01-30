@@ -50,6 +50,7 @@ main h2{
  #top:hover{
    color:rgb(17, 67, 95);
    background-color: white;
+   border: 2px solid rgb(17, 67, 95);
  }
 
  main{
