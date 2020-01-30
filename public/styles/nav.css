@@ -71,6 +71,10 @@ nav div span:first-of-type{
     background-color: rgb(13, 61, 88);
     background-image: none;
   }
+
+  nav button:hover{
+    text-shadow: 0 0 10px cyan;
+  }
   
 }
 

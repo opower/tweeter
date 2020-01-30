@@ -24,7 +24,6 @@
   padding-left: .5em;
   position: absolute;
   top: 25%;
-
 }
 
 .tweet header span:nth-of-type(2) {
@@ -50,6 +49,7 @@
   margin-top: 1em;
 }
 
+/* Mobile */
 @media only screen and (max-width: 530px) {
 
   .tweet header span:nth-of-type(2){
@@ -65,7 +65,7 @@
     flex-direction: column;   
   } 
  }
-
+/* Desktop */
 @media only screen and (min-width: 1024px) {
 
   .tweet{

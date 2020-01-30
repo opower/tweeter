@@ -17,7 +17,6 @@ textarea{
   height: 1.75em;
 }
 
-
 ::placeholder{
   font-weight: 600;
 }
@@ -35,11 +34,12 @@ textarea{
 }
 
 #error{
+  background-color: white;
   display: none;
-  background-color: rgba(255, 0, 0, .1);
   border: 5px solid red;
   color: black;
   padding: 1em;
-  margin-top: 1em;
+  margin-top: 1.5em;
   text-align: center;
 }
+

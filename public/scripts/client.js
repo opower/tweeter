@@ -15,19 +15,25 @@ $(() => {
   };
   loadTweets();
 
+  /**
+   * Sumbit event added to form
+   * Retrieves the value in the textarea and compares against conditionals if tweet is invalid
+   * If tweet is valid, use AJAX Post request to send tweet to the server
+   * Use loadTweets() to reload the page to include the new tweet
+   */
   $("form").submit(function(event) {
     event.preventDefault();
     let $tweet = $('textarea').val();
 
     if ($tweet.length === 0) {
       $('#error').slideDown();
-      $('#error').text(' ⚠️ Tweet Empty! Please Add Characters ⚠️');
+      $('#error').text(' Tweet Empty! Please Add Characters ');
     } else if ($tweet.length > 140) {
       $('#error').slideDown();
-      $('#error').text(' ⚠️ Tweet Too Long! Please Remove Characters ⚠️');
+      $('#error').text(' Tweet Too Long! Please Remove Characters ');
     } else if ($tweet === 'null') {
       $('#error').slideDown();
-      $('#error').text(' ⚠️ Tweet Cannot Be Null! Please Edit Tweet ⚠️');
+      $('#error').text(' Tweet Cannot Be Null! Please Edit Tweet ');
     } else {
       $.post('/tweets', $(this).serialize())
       .done(data =>{
@@ -44,14 +50,25 @@ $(() => {
   });
   
   /**
-   * 
+   * When the top down arrows are push slideToggle
    */
   $('#toggleForm').on('click', function() {
     $('.new-tweet').slideToggle();
   });
-  
+
   /**
-   * 
+   * If the button is clicked, take the user to the top of the page
+   */
+  $('#top').click(function() {
+    $('html').animate({scrollTop: 0}, 1000);
+    $('.new-tweet').css('display', 'none');
+    $('.new-tweet').slideToggle();
+  });
+
+});
+  /**
+   * Checks if the user scrolls past a certain point
+   * If point is passed, display a button at the bottom of the screen that will take the user back to the top
    */
   $(window).scroll(function() {
     let pos = $(window).scrollTop();
@@ -64,17 +81,6 @@ $(() => {
       $('#writeTweet').css('display', 'block');
     }
   });
-
-  /**
-   * 
-   */
-  $('#top').click(function() {
-    $('html').animate({scrollTop: 0}, 1000);
-    $('.new-tweet').css('display', 'none');
-    $('.new-tweet').slideToggle();
-  });
-
-});
 
   /**
    * @param date string
