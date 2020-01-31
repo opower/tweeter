@@ -16,7 +16,6 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
   background-image:url('../images/email-pattern.png') ;
   font-size: 24px;
   font-family: 'Source Sans Pro', 'sans-serif';
@@ -29,7 +28,6 @@ main h2{
  .container{
    width: 90%;
    margin: auto;
-   background-color: #f4f1ec;
    background-image:url('../images/email-pattern.png') ; 
    position: relative;
    top: 400px;
