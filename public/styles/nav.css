@@ -34,6 +34,7 @@ nav button:hover{
 #writeTweet{
   float: right;
 }
+
 nav div span:first-of-type{
   font-family: 'Source Sans Pro', 'sans-serif';
   text-align: center;
